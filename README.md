@@ -36,6 +36,32 @@ sudo systemctl status jenkins # Check the status of Jenkins service
 
 **Note:** Jenkins is typically run as a standalone application in its own process. The Jenkins WAR file bundles Winstone, a Jetty servlet container wrapper, and can be started on any operating system or platform with a version of Java supported by Jenkins.
 
+## Run pre-commit
+This repository already includes a `.pre-commit-config.yaml`. Run the following commands to install the hooks locally:
+
+```bash
+python -m pip install pre-commit
+pre-commit install
+pre-commit validate-config
+```
+
+This installs the hook into `.git/hooks/pre-commit`. Once installed, pre-commit runs automatically when you commit changes. By default, it checks only the files included in the commit.
+
+To run all hooks manually, use:
+
+```bash
+pre-commit run --all-files
+pre-commit run <hook_id>
+```
+
+## Contributing
+
+Contributions are welcome! Please open issues or submit pull requests for improvements or new scripts.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
 ## References
 - https://www.jenkins.io/doc/book/installing/
 - https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-22-04
