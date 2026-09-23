@@ -1,0 +1,13 @@
+node {
+	
+	properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '1', artifactNumToKeepStr: '1', daysToKeepStr: '1', numToKeepStr: '1'))])
+	properties([parameters([string(defaultValue: 'master', description: 'Branch Name', name: 'branch')])])
+	
+	stage ("Source-Code Checkout") {
+		git url: 'https://github.com/anupam-sy/Spring3HibernateAPP.git', branch: '${branch}'
+	}
+	
+	stage ("Build") {
+		sh 'mvn clean package'
+	}
+}

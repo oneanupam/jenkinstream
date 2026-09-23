@@ -1,0 +1,14 @@
+# detailed description of the sample scripts places under this folder.
+
+dsl_01.groovy : Job DSL script to create a freestyle job with general configurations.
+dsl_02.groovy : Job DSL script to create a freestyle job with source code management configuration.
+dsl_03.groovy : Job DSL script to create a freestyle job with build trigger and build steps configuration.
+dsl_04.groovy : Job DSL script to create a freestyle job with post build actions.
+dsl_05.groovy : Job DSL script to create a freestyle job with 'extended email notification' post build actions.
+dsl_06.groovy : Job DSL script to create a pipeline job.
+dsl_07.groovy : Job DSL script to build a maven type Java project.
+dsl_08.groovy : Job DSL script to create a maven job that builds a Java project according to selected tag.
+dsl_09.groovy : Job DSL script to create a maven job that performs code stability.
+dsl_10.groovy : Job DSL script to create a maven job that performs code quality.
+dsl_11.groovy : Job DSL script to create a maven job that performs code coverage.
+dsl_12.groovy : Job DSL script to create a maven job that performs war deployment.

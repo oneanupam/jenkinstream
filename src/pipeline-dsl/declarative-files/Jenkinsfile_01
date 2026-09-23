@@ -1,0 +1,26 @@
+pipeline {
+    // Use 'any' to execute the Pipeline, or stage, on any available agent.
+    agent any
+    parameters  {
+		choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
+    }
+    tools {
+        jdk 'jdk7'
+        maven 'maven3'
+    }
+    stages {
+        stage('Test software installation') {
+            steps {
+                sh 'java -version'
+                sh 'which java'
+                sh 'mvn -version'
+                sh 'which mvn'
+            }
+        }
+        stage('Print variable') {
+            steps {
+				echo '${region}'
+            }
+        }
+    }
+}
