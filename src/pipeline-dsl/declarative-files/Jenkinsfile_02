@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+	// Set the environment variable
+    environment {
+        DB_ENGINE = 'sqlite'
+    }
+    stages {
+        stage('Source-Code Checkout') {
+            steps {
+				// create a directory called "/var/lib/jenkins/anupam" and cd into that directory
+				dir("/var/lib/jenkins/anupam") {
+					git url: 'https://github.com/anupam-sy/Spring3HibernateAPP.git', branch: 'master'
+				}
+            }
+        }
+		stage('Echoing Data') {
+			options {
+				timeout(time: 60, unit: 'SECONDS') 
+			}
+			input {
+				message "Should we continue?"
+			}
+			steps {
+				echo "Continuing with printing data..."
+				sh 'printenv'
+			}
+		}
+    }
+}
